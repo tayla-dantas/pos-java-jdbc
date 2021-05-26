@@ -9,7 +9,7 @@ public class SingleConnection {
 
     private static String url = "jdbc:postgresql://localhost:5432/posjava";
     private static String password = "root";
-    private static String user = "root";
+    private static String user = "postgres";
     private static Connection connection = null;
 
     static {
@@ -26,6 +26,7 @@ public class SingleConnection {
                 Class.forName("org.postgresql.Driver");
                 connection = DriverManager.getConnection(url, user, password);
                 connection.setAutoCommit(false);
+                System.out.println("Conectou com Sucesso");
 
             }
         }catch (Exception e) {
